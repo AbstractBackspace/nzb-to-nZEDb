@@ -9,13 +9,13 @@ Download the `docker-compose.yaml`:
 Windows:
 
 ```powershell
-Invoke-WebRequest -Uri https://raw.githubusercontent.com/AbstractBackspace/nzb.to-nZEDb/master/docker-compose.yml -OutFile docker-compose.yml
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/AbstractBackspace/nzb-to-nZEDb/master/docker-compose.yml -OutFile docker-compose.yml
 ```
 
 Linux:
 
 ```bash
-wget https://raw.githubusercontent.com/AbstractBackspace/nzb.to-nZEDb/master/docker-compose.yml
+wget https://raw.githubusercontent.com/AbstractBackspace/nzb-to-nZEDb/master/docker-compose.yml
 ```
 
 Then adjust the following environment variables in the `docker-compose.yml` file:
@@ -30,7 +30,7 @@ Then run the following command:
 docker-compose up -d
 ```
 
-and visit http://localhost:8080 to configure the nzb.to to nZEDb proxy instance.
+and visit http://localhost:8080 (or wherever the container runs) to configure the nzb.to to nZEDb proxy instance.
 After the configuration is done, the web page shows an API Key.
 This API Key can be used to connect your *arr service to the nZEDb instance.
 
