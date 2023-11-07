@@ -1,0 +1,32 @@
+version: "3"
+
+networks:
+  nzb-tor-proxy:
+    driver: bridge
+
+services:
+  nzb-to-nzedb-proxy:
+    image: 1rainyday/nzb-to-nzedb-proxy
+    build:
+      context: ./
+    environment:
+      - TZ=Europe/Berlin
+      - TMDB_KEY=???                                # Adjust this
+      - SALT_KEY=16CHARSALTKEYXXX                   # Adjust this
+      - TOR_PROXY_HOST=torproxy:9050
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - nzb-tor-proxy
+    depends_on:
+      - torproxy
+
+  torproxy:
+    image: dperson/torproxy
+    expose:
+      - "9050"
+    environment:
+      TZ: "Europe/Berlin"
+    networks:
+      - nzb-tor-proxy
