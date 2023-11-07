@@ -15,8 +15,8 @@ services:
       - SALT_KEY=16CHARSALTKEYXXX                   # Adjust this
       - TOR_PROXY_HOST=torproxy:9050
     ports:
-      - "80:80"
-      - "443:443"
+      - "8080:80"
+      - "8443:443"
     networks:
       - nzb-tor-proxy
     depends_on:
